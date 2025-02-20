@@ -3,9 +3,12 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
 
 const app = express();
 const port = 3000;
+
+dotenv.config();
 const cors = require("cors");
 app.use(cors());
 
@@ -14,7 +17,7 @@ app.use(bodyParser.json());
 const jwt = require("jsonwebtoken");
 
 mongoose
-  .connect("", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -67,8 +70,8 @@ const sendVerificationEmail = async (email, verificationToken) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "sujananand0@gmail.com",
-      pass: "",
+      user: "projectbase999@gmail.com",
+      pass: process.env.PASS,
     },
   });
 
