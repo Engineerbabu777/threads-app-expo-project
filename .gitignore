@@ -38,5 +38,9 @@ yarn-error.*
 app-example
 
 ./api/.env
+/api/env 
+/api/.env 
+./api/.env 
+.env
 
 *.env
