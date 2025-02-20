@@ -42,5 +42,6 @@ app-example
 /api/.env 
 ./api/.env 
 .env
+api/.env
 
 *.env
