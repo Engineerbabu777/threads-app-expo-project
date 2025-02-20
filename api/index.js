@@ -77,7 +77,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
 
   //compose the email message
   const mailOptions = {
-    from: "threads.com",
+    from: "awaismumtaz0099@gmail.com",
     to: email,
     subject: "Email Verification",
     text: `please click the following link to verify your email http://localhost:3000/verify/${verificationToken}`,
