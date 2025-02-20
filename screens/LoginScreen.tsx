@@ -153,7 +153,7 @@ import {
           </Pressable>
   
           <Pressable
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.navigate("signup")}
             style={{ marginTop: 10 }}
           >
             <Text style={{ textAlign: "center", fontSize: 16 }}>
