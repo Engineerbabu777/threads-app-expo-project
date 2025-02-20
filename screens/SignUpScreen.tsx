@@ -15,8 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { HOST_URL } from "./LoginScreen";
-
+import { HOST_IP } from "./LoginScreen";
 const RegisterScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -30,7 +29,7 @@ const RegisterScreen = () => {
         };
 
         axios
-            .post(`http://${HOST_URL}:3000/register`, user)
+            .post(`http://${HOST_IP}:3000/register`, user)
             .then((response) => {
                 console.log(response);
                 Alert.alert(

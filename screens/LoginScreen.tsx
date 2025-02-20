@@ -16,15 +16,50 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export const HOST_URL = "192.168.160.216";
+export const HOST_IP = "192.168.160.216";
 const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigation();
 
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+          try {
+            const token = await AsyncStorage.getItem("authToken");
+    
+            if (token) {
+              setTimeout(() => {
+                navigation.navigate("Main");
+              }, 400);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+        };
+    
+        checkLoginStatus();
+      }, []);
 
     const handleLogin = () => {
+        const user = {
+            email: email,
+            password: password,
+          };
+
+          console.log("requesting...")
       
+          axios
+            .post(`http://${HOST_IP}:3000/login`, user)
+            .then((response) => {
+              console.log(response);
+              const token = response.data.token;
+              AsyncStorage.setItem("authToken", token);
+              navigation.navigate("Main");
+            })
+            .catch((error) => {
+              Alert.alert("Login error");
+              console.log("error ", error);
+            });
     };
 
 return (
