@@ -29,7 +29,6 @@ const LoginScreen = () => {
     
             if (token) {
                 navigation.reset({history: ["Main"], index: 0, routes: [{ name: "Main" as never }]});
-                // navigation.navigate("Main");
             
             }
           } catch (error) {
