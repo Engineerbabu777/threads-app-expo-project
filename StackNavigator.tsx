@@ -9,6 +9,9 @@ import LoginScreen from './screens/LoginScreen'
 import SignUpScreen from './screens/SignUpScreen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons'
+import ActivityScreen from './screens/ActivityScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import ThreadsScreen from './screens/ThreadsScreen'
 
 
 const Stack = createNativeStackNavigator()
