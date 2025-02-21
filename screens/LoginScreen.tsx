@@ -28,9 +28,9 @@ const LoginScreen = () => {
             const token = await AsyncStorage.getItem("authToken");
     
             if (token) {
-              setTimeout(() => {
-                navigation.navigate("Main");
-              }, 400);
+                navigation.reset({history: ["Main"], index: 0, routes: [{ name: "Main" as never }]});
+                // navigation.navigate("Main");
+            
             }
           } catch (error) {
             console.log("error", error);
@@ -54,7 +54,8 @@ const LoginScreen = () => {
               console.log(response);
               const token = response.data.token;
               AsyncStorage.setItem("authToken", token);
-              navigation.navigate("Main");
+              navigation.reset({history: ["Main"], index: 0, routes: [{ name: "Main" as never }]});
+
             })
             .catch((error) => {
               Alert.alert("Login error");

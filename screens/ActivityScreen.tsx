@@ -9,9 +9,7 @@ import {
   import AsyncStorage from "@react-native-async-storage/async-storage";
   import axios from "axios";
   import { UserType } from "../UserContext";
-//   import User from "../components/User";
-import jwt_decode from "jwt-decode";
-import { parseJwt } from "@/utils";
+
 import { HOST_IP } from "./LoginScreen";
 import User from "@/components/User";
 
@@ -141,7 +139,7 @@ import User from "@/components/User";
   
           <View>
             {selectedButton === "people" && (
-              <View style={{marginTop:20,gap:10}}>
+              <View style={{marginTop:20,gap:15}}>
                 {users?.map((item, index) => (
                   <User key={index} item={item} />
                 ))}
