@@ -127,11 +127,29 @@ const LoginScreen = () => {
                     <Text style={styles.forgotPassword}>Forgot Password?</Text>
                 </View>
 
-                <Pressable onPress={handleLogin} style={styles.button} disabled={loginLoading}>
+               
+                <Pressable
+                    onPress={handleLogin}
+                    style={{
+                        width: 200,
+                        backgroundColor: "black",
+                        padding: 15,
+                        marginTop: 40,
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        borderRadius: 6,
+                    }}
+                >
+
                     {loginLoading ? (
                         <ActivityIndicator size="small" color="#fff" />
                     ) : (
-                        <Text style={styles.buttonText}>Login</Text>
+                        <Text style={{
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            fontSize: 16,
+                            color: "white",
+                        }}>Login</Text>
                     )}
                 </Pressable>
 
@@ -207,6 +225,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
+        display: "flex"
     },
     buttonText: {
         fontWeight: "bold",

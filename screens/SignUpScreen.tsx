@@ -96,7 +96,7 @@ const RegisterScreen = () => {
                                 width: 300,
                                 fontSize: password ? 16 : 16,
                             }}
-                            placeholder="enter your Name"
+                            placeholder="Enter your Name"
                         />
                     </View>
                 </View>
@@ -129,7 +129,7 @@ const RegisterScreen = () => {
                                 width: 300,
                                 fontSize: email ? 16 : 16,
                             }}
-                            placeholder="enter your Email"
+                            placeholder="Enter your Email"
                         />
                     </View>
 
@@ -162,7 +162,7 @@ const RegisterScreen = () => {
                                     width: 300,
                                     fontSize: password ? 16 : 16,
                                 }}
-                                placeholder="enter your Password"
+                                placeholder="Enter your Password"
                             />
                         </View>
                     </View>
