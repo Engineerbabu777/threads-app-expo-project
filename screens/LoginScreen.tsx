@@ -9,18 +9,21 @@ import {
     Pressable,
     Alert,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserType } from "@/UserContext";
 
 export const HOST_IP = "192.168.160.216";
 const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigation();
+    const { setUserId } = useContext<any>(UserType);
+
 
     useEffect(() => {
         const checkLoginStatus = async () => {
@@ -28,7 +31,10 @@ const LoginScreen = () => {
             const token = await AsyncStorage.getItem("authToken");
     
             if (token) {
+              setUserId(token);
+
                 navigation.reset({history: ["Main"], index: 0, routes: [{ name: "Main" as never }]});
+
             
             }
           } catch (error) {
@@ -52,6 +58,8 @@ const LoginScreen = () => {
             .then((response) => {
               console.log(response);
               const token = response.data.token;
+              setUserId(token);
+              
               AsyncStorage.setItem("authToken", token);
               navigation.reset({history: ["Main"], index: 0, routes: [{ name: "Main" as never }]});
 
